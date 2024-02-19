@@ -7,10 +7,12 @@ public class Main {
         String username = strequals("Картаныздын логини: ");
         String password = strequals("Пароль жазыныз: ");
 
+
         if (enter(username, password)) {
 
             Account my = new Account(0);
-            Account account = new Account(1500);
+            Account account = new Account(1000);
+            System.out.println("Нуркыз Зикирдинова кош келипсиз!");
 
             int choice;
 
@@ -30,7 +32,9 @@ public class Main {
 
                 switch (choice) {
                     case 1:
-                        System.out.println("БАЛАНС" + my.checkBalance());
+                        System.out.println("Сиздин баланс " + my.checkBalance());
+                        System.out.println("2- account баланс "+account.checkBalance());
+
                         break;
 
                     case 2:
@@ -48,11 +52,11 @@ public class Main {
                     case 4:
                         System.out.print("Акча которуунун суммасы: ");
                         double transactionAmount = scanner.nextDouble();
+                        account.checkBalance();
+                        my.checkBalance();
                         System.out.println("Кайсы картадан которуулат (1 - Сиздики, 2 - Башка): ");
                         int sendAccount = scanner.nextInt();
-
                         Account sender = (sendAccount == 1) ? my : account;
-
                         System.out.println("Кайсы картага которуу керек (1 - Сиздики, 2 - Башка): ");
                         int reciveAccount = scanner.nextInt();
                         Account recive = (reciveAccount == 1) ? my : account;
@@ -61,7 +65,7 @@ public class Main {
                         break;
 
                     case 0:
-                        System.out.println("Программа токтотуу");
+                        System.out.println("Программа токтоду");
                         break;
 
                     default:
@@ -76,7 +80,7 @@ public class Main {
 
     }
     private static boolean enter(String username, String password) {
-        return username.equals("Nurkyz") && password.equals("parol");
+        return username.equals("Nurkyz") && password.equals("mmmm");
     }
 
     private  static String strequals(String login) {
